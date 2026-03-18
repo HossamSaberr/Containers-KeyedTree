@@ -226,6 +226,10 @@ CTKeyedTreeTest >> testDeepCopyStateNotShared [
 		
 	clone := original copy.
 	
+	"Verify they have equal values but are different objects in memory before mutation"
+	self assert: original equals: clone.
+	self deny: original == clone.
+	
 	(clone at: #config) at: #color put: 'blue'.
 	
 	self assert: (original atPath: #(config color)) equals: 'red'.

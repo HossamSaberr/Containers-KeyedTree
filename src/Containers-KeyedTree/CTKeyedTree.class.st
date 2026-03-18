@@ -484,8 +484,7 @@ CTKeyedTree >> postCopy [
 	
 	super postCopy.
 	self keysAndValuesDo: [ :key :value |
-		(value isKindOf: self class)
-			ifTrue: [ self at: key put: value copy ] ]
+		self at: key put: value copy ]
 ]
 
 { #category : 'printing' }
